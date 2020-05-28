@@ -1,0 +1,28 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "extends": [
+    "plugin:@typescript-eslint/recommended",
+    "airbnb-typescript/base",
+    "prettier/@typescript-eslint",
+    "plugin:prettier/recommended"
+  ],
+  "parserOptions": {
+    "project": "tsconfig.json",
+    "ecmaVersion": 2018,
+    "sourceType": "module"
+  },
+  "env": {
+    "es6": true
+  },
+  "rules": {
+    "no-console": "off",
+    "@typescript-eslint/camelcase": "off" // https://github.com/typescript-eslint/typescript-eslint/issues/2077
+  },
+  "globals": {
+    "console": "readonly",
+    "document": "readonly",
+    "window": "readonly",
+    "it": "readonly",
+    "localStorage": "readonly"
+  }
+}
