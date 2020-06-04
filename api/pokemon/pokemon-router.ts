@@ -11,4 +11,12 @@ router.get(
   }
 );
 
+router.get(
+  '/:id',
+  async (req: Request, res: Response): Promise<void> => {
+    const pokemon = await Pokedex.getPokemonByName(req.params.id);
+    res.status(200).json(pokemon);
+  }
+);
+
 export default router;
