@@ -7,7 +7,17 @@ router.get(
   '/',
   async (req: Request, res: Response): Promise<void> => {
     const pokemon = await Pokedex.getPokemonsList();
-    res.status(200).json(pokemon);
+    let limit = 20;
+    let offset = 0;
+
+    if (req.query.limit) {
+      limit = parseInt(req.query.limit.toString(), 10);
+    }
+
+    if (req.query.offset) {
+      offset = parseInt(req.query.offset.toString(), 10);
+    }
+    res.status(200).json(pokemon.results.slice(offset, limit + offset));
   }
 );
 
