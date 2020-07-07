@@ -17,7 +17,10 @@ router.get(
     if (req.query.offset) {
       offset = parseInt(req.query.offset.toString(), 10);
     }
-    res.status(200).json(pokemon.results.slice(offset, limit + offset));
+    res.status(200).json({
+      list: pokemon.results.slice(offset, limit + offset),
+      next: limit + offset < pokemon.results.length,
+    });
   }
 );
 
