@@ -28,7 +28,7 @@ router.get(
 
     if (search) {
       const options = {
-        includeScore: true,
+        threshold: 0.3,
         keys: ['name'],
       };
       const fuse = new Fuse(results, options);
